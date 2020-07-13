@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+  <title>WeatherApp | by Jan</title>
+</head>
+<body>
+
+  <div class="card">
+    <div class="top">
+      <div class="top-icon"><i class="fas fa-bars"></i></div>
+      <div id="infos">
+        <h1 id="infos-location">Detmold</h1>
+        <p id="infos-time">Mon, 1:20 am</p>
+      </div>
+      <div class="top-icon"><i class="fas fa-cog"></i></div>
+    </div>
+    <div class="main">
+      <div id="weather-icon"><img id="weather-icon-img" src="" alt=""></div>
+      <div class="temperature">
+        <h1 id="temperature-degree">23</h1>
+        <h2 id="temperature-info">Cloudy</h2>
+      </div>
+      <div class="sunInfo">
+        <div class="sunInfo-container">
+          <h2>Sunrise:</h2>
+          <p id="sunInfo-container-sunrise">hello</p>
+        </div>
+        <div class="sunInfo-container">
+          <h2>Sunset:</h2>
+          <p id="sunInfo-container-sunset">hello</p>
+        </div>
+      </div>
+      <div class="additional">
+        <div class="additional-container">
+          <h2>Feels like</h2>
+          <p id="additional-felt">0</p>
+        </div>
+        <div class="additional-container">
+          <h2>Wind</h2>
+          <p id="additional-wind">0</p>
+        </div>
+        <div class="additional-container">
+          <h2>UV</h2>
+          <p id="additional-uv">0</p>
+        </div>
+      </div>
+      <div class="forecast">
+        <div class="oneDay">
+          <h2>Tomorrow</h2>
+          <img id="oneDayIcon" src="" alt="">
+          <p id="oneDaysMax">0</p>
+          <p id="oneDaysMin">0</p>
+        </div>
+        <div class="twoDay">
+          <h2>In two days</h2>
+          <img id="twoDayIcon" src="" alt="">
+          <p id="twoDaysMax">0</p>
+          <p id="twoDaysMin">0</p>
+        </div>
+        <div class="threeDay">
+          <h2>In three days</h2>
+          <img id="threeDayIcon" src="" alt="">
+          <p id="threeDaysMax">0</p>
+          <p id="threeDaysMin">0</p>
+        </div>
+      </div>
+
+    </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

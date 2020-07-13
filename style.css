@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#95C8D8, #4682b4);
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.card {
+  height: 30rem;
+  width: 18rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 8fr;
+  border-radius: 10px;
+  background: #0d2d57;
+  color: #fff;
+}
+
+.top {
+  padding: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#infos {
+  width: 200px;
+}
+
+.top i {
+  font-size: 1rem;
+}
+
+.top p {
+  font-size: .8rem;
+}
+
+.top h1 {
+  font-size: 1.25rem;
+  margin-bottom: .2rem;
+}
+
+#weather-icon img {
+  height: 100px;
+  width: 100px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  padding: 0 0 1rem 0;
+}
+
+.main * {
+  width: 100%;
+}
+
+.temperature {
+  margin-top: -1.5rem;
+}
+
+.temperature h1 {
+  font-size: 2.75rem;
+}
+
+.sunInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.additional {
+  display: flex;
+  font-size: .8rem;
+}
+
+.additional h2 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.forecast {
+  display: flex;
+}
+
+.oneDay,
+.twoDay,
+.threeDay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#oneDayIcon,
+#twoDayIcon,
+#threeDayIcon {
+  height: 50px;
+  width: 50px;
+}
