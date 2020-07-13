@@ -26,6 +26,7 @@ body {
   border-radius: 10px;
   background: #0d2d57;
   color: #fff;
+  box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, .2);
 }
 
 .top {
@@ -84,6 +85,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  font-size: .8rem;
+}
+
+.sunInfo h2 {
+  font-size: 1rem;
 }
 
 .additional {
@@ -107,6 +113,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.oneDay p,
+.twoDay p,
+.threeDay p {
+  font-size: .7rem;
+  text-align: center;
 }
 
 #oneDayIcon,
