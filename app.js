@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
   const sunsetEL = document.getElementById('sunInfo-container-sunset');
   const feltEL = document.getElementById('additional-felt');
   const windEL = document.getElementById('additional-wind');
-  const uvEL = document.getElementById('additional-uv');
+  const humEL = document.getElementById('additional-hum');
   const oneDaysMaxEL = document.getElementById('oneDaysMax');
   const oneDaysMinEL = document.getElementById('oneDaysMin');
   const oneDaysDateEL = document.getElementById('oneDayDate');
@@ -24,9 +24,9 @@ window.addEventListener('load', () => {
   const today = new Date();
   const h = today.getHours();
   const m = (today.getMinutes()<10?'0':'') + today.getMinutes();
-  console.log(m)
   const todaysDate = today.getDay();
   const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
 
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
@@ -41,7 +41,6 @@ window.addEventListener('load', () => {
       })
       .then(data => {
         const weatherInfo = data.data[0]
-        console.log(weatherInfo)
         const icon = weatherInfo.weather.icon;
         const temp = weatherInfo.temp;
         const info = weatherInfo.weather.description;
@@ -51,9 +50,10 @@ window.addEventListener('load', () => {
         const felt = weatherInfo.app_temp;
         const windDirection = weatherInfo.wind_cdir;
         const wind = (weatherInfo.wind_spd) * 10;
-        const uv = weatherInfo.uv;
+        const hum = weatherInfo.rh;
 
         // DOM Elements
+        document.getElementById('weather-icon-img').src = `https://www.weatherbit.io/static/img/icons/${icon}.png`;
         locationEL.textContent = location;
         timeEL.textContent = `${weekdays[todaysDate]}, ${h}:${m}`
         degreeEL.textContent = temp + ' C°';
@@ -61,9 +61,8 @@ window.addEventListener('load', () => {
         sunriseEL.textContent = sunrise;
         sunsetEL.textContent = sunset;
         feltEL.textContent = felt + ' C°';
-        windEL.textContent = Math.floor(wind) + ' KM/h ' + windDirection;
-        uvEL.textContent = Math.floor(uv);
-        document.getElementById('weather-icon-img').src = `https://www.weatherbit.io/static/img/icons/${icon}.png`
+        windEL.textContent = Math.floor(wind) + ' km/h ' + windDirection;
+        humEL.textContent = Math.floor(hum) + "%";
       });
 
       fetch(api2)
@@ -77,9 +76,9 @@ window.addEventListener('load', () => {
         const oneDayMinTemp = oneDay.min_temp;
         const oneDayIcon = oneDay.weather.icon;
         // 1 Day DOM Elements
-        document.getElementById('oneDayIcon').src = `https://www.weatherbit.io/static/img/icons/${oneDayIcon}.png`
-        oneDaysMaxEL.textContent = "Max: " + Math.floor(oneDayMaxTemp);
-        oneDaysMinEL.textContent = "Min: " + Math.floor(oneDayMinTemp);
+        document.getElementById('oneDayIcon').src = `https://www.weatherbit.io/static/img/icons/${oneDayIcon}.png`;
+        oneDaysMaxEL.textContent = "High: " + Math.floor(oneDayMaxTemp);
+        oneDaysMinEL.textContent = "Low: " + Math.floor(oneDayMinTemp);
         oneDaysDateEL.textContent = `${weekdays[todaysDate + 1]}`;
         // In 2 days
         const twoDay = data2.data[2];
@@ -87,9 +86,9 @@ window.addEventListener('load', () => {
         const twoDayMinTemp = twoDay.min_temp;
         const twoDayIcon = twoDay.weather.icon;
         // 2 Days DOM Elements
-        document.getElementById('twoDayIcon').src = `https://www.weatherbit.io/static/img/icons/${twoDayIcon}.png`
-        twoDaysMaxEL.textContent = "Max: " + Math.floor(twoDayMaxTemp);
-        twoDaysMinEL.textContent = "Min: " + Math.floor(twoDayMinTemp);  
+        document.getElementById('twoDayIcon').src = `https://www.weatherbit.io/static/img/icons/${twoDayIcon}.png`;
+        twoDaysMaxEL.textContent = "High: " + Math.floor(twoDayMaxTemp);
+        twoDaysMinEL.textContent = "Low: " + Math.floor(twoDayMinTemp);  
         twoDaysDateEL.textContent = `${weekdays[todaysDate + 2]}`;  
         // In 3 days
         const threeDay = data2.data[3];
@@ -97,11 +96,11 @@ window.addEventListener('load', () => {
         const threeDayMinTemp = threeDay.min_temp;
         const threeDayIcon = threeDay.weather.icon;
         // 3 Days DOM Elements
-        document.getElementById('threeDayIcon').src = `https://www.weatherbit.io/static/img/icons/${threeDayIcon}.png`
-        threeDaysMaxEL.textContent = "Max: " + Math.floor(threeDayMaxTemp);
-        threeDaysMinEL.textContent = "Min: " + Math.floor(threeDayMinTemp); 
+        document.getElementById('threeDayIcon').src = `https://www.weatherbit.io/static/img/icons/${threeDayIcon}.png`;
+        threeDaysMaxEL.textContent = "High: " + Math.floor(threeDayMaxTemp);
+        threeDaysMinEL.textContent = "Low: " + Math.floor(threeDayMinTemp); 
         threeDaysDateEL.textContent = `${weekdays[todaysDate + 3]}`;     
       });
     });
-  }
-})
+  };
+});
